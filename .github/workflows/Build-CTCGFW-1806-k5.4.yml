@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: CTCGFW_Master
+name: CTCGFW_18.06_k5.4
 
 on:
   repository_dispatch:
@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-18.06-k5.4
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part0.sh
@@ -137,7 +137,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")_Master"
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")_18.06_k5.4"
         touch release.txt
         echo "::set-output name=status::success"
 
