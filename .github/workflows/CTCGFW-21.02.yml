@@ -70,6 +70,7 @@ jobs:
         chmod +x $CUSTOM_SH
         cd openwrt
         $GITHUB_WORKSPACE/$CUSTOM_SH $INPUT_DVC_NAME $INPUT_DVC_IP
+        cat $GITHUB_WORKSPACE/package/base-files/files/bin/config_generate
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
