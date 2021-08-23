@@ -8,6 +8,13 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'true'
+      DVC_NAME:
+        description: 'Device name'
+        required: true
+      DVC_IP:
+        description: 'DEVICE IP'
+        required: false
+        default: '192.168.121.1'
 #  schedule:
 #    - cron: 0 8 * * 5
 
@@ -62,7 +69,7 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $CUSTOM_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$CUSTOM_SH
+        $GITHUB_WORKSPACE/$CUSTOM_SH $INPUT_DVC_NAME $INPUT_DVC_IP
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
