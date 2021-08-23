@@ -70,7 +70,6 @@ jobs:
         chmod +x $CUSTOM_SH
         cd openwrt
         $GITHUB_WORKSPACE/$CUSTOM_SH ${{ github.event.inputs.DVC_NAME }} ${{ github.event.inputs.DVC_IP }}
-        cat package/base-files/files/bin/config_generate
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
